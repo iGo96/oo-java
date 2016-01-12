@@ -7,33 +7,17 @@ import java.io.IOException;*/
 public class Test {
 
 	public static void main(String[] args) {
-		int[] money = MoneyChange.money;
+		Money[] money = MoneyChange.money;
 		
-		int val = 1254890;
+		int val = 782;
 		
 		System.out.println("Per cambiare " + val + "€ ti servono: ");
 		
-		int[] retArr = MoneyChange.change(val);		
+		int[] retArr = MoneyChange.change(val);
 		
 		for (int i = 0; i < retArr.length; i++){
-			String valueType = "";
-			
-	    	if (retArr[i] > 0){
-	    		if(money[i] >= 5){
-	    			if (retArr[i] > 1)
-	    				valueType = " banconote";
-	    			else
-	    				valueType = " banconota";
-	    		}
-	    		else{
-	    			if (retArr[i] > 1)
-	    				valueType = " monete";
-	    			else
-	    				valueType = " moneta";
-	    		}
-		    	System.out.println(retArr[i] + valueType + " da " + money[i] + "€");
-	    	}
-	    	
+			//if (retArr[i] > 0)
+				System.out.println(retArr[i] + " " + money[i].getType() + " da " + money[i].getValue() + "€");
 	    } 
 	    //---------------------------------------------------------------
 		
@@ -54,5 +38,4 @@ public class Test {
 		 * 
 		 */
 	}
-
 }

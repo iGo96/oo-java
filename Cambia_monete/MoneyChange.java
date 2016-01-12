@@ -1,20 +1,25 @@
 package Cambia_monete;
 
 public abstract class MoneyChange {
-	public static int[] money = new int[]{500, 200, 100, 50, 20, 10, 5, 2, 1}; //valuta utilizzabile
-	//money non è un array di int ma di money <- new class.
+	public static Money[] money = new Money[] {
+		new Money(500, "banconota"), new Money(200, "banconota"), new Money(100, "banconota"), new Money(50, "banconota"), 
+		new Money(20, "banconota"), new Money(10, "banconota"), new Money(5, "banconota"), new Money(2, "moneta"), new Money(1, "moneta")}; //valuta utilizzabile
 	
-	public static int[] change(int value){
-		int[] ripetitions = new int[money.length]; //array che contiene la quantità di banconote da utilizzare
+	public static int[] change(int value) {
+		int[] repetitions = new int[money.length]; //array che contiene la quantità di banconote da utilizzare
+		int[] retArr = new int[money.length];
 		
 		for (int i = 0; i < money.length; i++) {
-			int rep = value / money[i]; 
-			
-			if (rep > 0) {
-				value -= money[i] * rep;
-				ripetitions[i] = rep;
-			}
+			int rep = value / money[i].getValue(); 
+			value -= money[i].getValue() * rep;
+			repetitions[i] = rep;
 		}
-		return ripetitions;
+		
+		for (int i = 0; i < repetitions.length; i++) {
+			if(repetitions[i] > 0)
+				retArr[i] = repetitions[i];
+		}
+		
+		return retArr;
 	}
 }
