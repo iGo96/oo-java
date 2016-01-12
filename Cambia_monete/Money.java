@@ -1,28 +1,28 @@
 package Cambia_monete;
 
 public class Money {
-	private int value;
-	private String type;
+	private int _value;
+	private String _type;
 	
 	public Money(int value, String type) {
-		this.setValue(value);
-		this.setType(type);
+		this._value = value;
+		this._type = type;
 	}
 	
 	//get & set
 	public int getValue() {
-		return value;
+		return _value;
 	}
 	
 	public void setValue(int value) {
-		this.value = value;
+		this._value = value;
 	}
 
 	public String getType() {
-		return type;
+		return _type;
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this._type = type;
 	}
 }
